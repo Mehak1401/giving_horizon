@@ -1,8 +1,9 @@
 package main
 
 import (
-	"charity-backend/database"
-	"charity-backend/routes"
+	"giving-horizon-backend/database"
+	"giving-horizon-backend/routes"
+
 	"github.com/gin-gonic/gin"
 )
 

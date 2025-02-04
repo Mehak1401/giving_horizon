@@ -1,7 +1,8 @@
 package routes
 
 import (
-	"charity-backend/controllers"
+	"giving-horizon-backend/controllers"
+
 	"github.com/gin-gonic/gin"
 )
 

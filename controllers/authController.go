@@ -3,20 +3,30 @@ package controllers
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"giving-horizon-backend/database"
 	"giving-horizon-backend/models"
 	"io/ioutil"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 )
 
+func init() {
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Println("Error loading .env file")
+	}
+}
+
 var googleOauthConfig = &oauth2.Config{
-	ClientID:     "YOUR_GOOGLE_CLIENT_ID",
-	ClientSecret: "YOUR_GOOGLE_CLIENT_SECRET",
-	RedirectURL:  "http://localhost:8080/auth/google/callback",
+	ClientID:     os.Getenv("GOOGLE_CLIENT_ID"),
+	ClientSecret: os.Getenv("GOOGLE_CLIENT_SECRET"),
+	RedirectURL:  os.Getenv("GOOGLE_REDIRECT_URL"),
 	Scopes:       []string{"email", "profile"},
 	Endpoint:     google.Endpoint,
 }

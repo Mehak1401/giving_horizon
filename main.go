@@ -11,7 +11,7 @@ import (
 
 func main() {
 	r := gin.Default()
-	r.Use(CORSMiddleware())
+
 	database.Connect()
 
 	routes.AuthRoutes(r)

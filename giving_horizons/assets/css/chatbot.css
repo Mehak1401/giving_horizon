@@ -1,0 +1,121 @@
+
+
+/* Chat Icon Styles */
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1f3566;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Chat Container Styles */
+.chat-container {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    width: 350px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.chat-box {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.bot-message, .user-message {
+    margin-bottom: 15px;
+}
+
+.bot-message p {
+    background-color: #f6f9ff;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.user-message p {
+    background-color: #c8d9ff;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: right;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 75%;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    border: 1px solid #1f3566;
+    background-color: #1f3566;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #436abf;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Close Button Styles */
+.close-btn {
+    padding: 5px 10px;
+    border: none;
+    background-color: rgb(209, 11, 11);
+    color: white;
+    font-size: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-btn:hover {
+    background-color: rgb(240, 6, 6);
+}
+
+/* Recommended Questions Styling */
+.recommended-questions {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.recommended-questions button {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    color: #333;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.recommended-questions button:hover {
+    background-color: #093667;
+    color: white;
+}

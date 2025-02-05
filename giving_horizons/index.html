@@ -22,6 +22,7 @@
       <link rel="stylesheet" href="assets/css/font-awesome-pro.css">
       <link rel="stylesheet" href="assets/css/spacing.css">
       <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="/giving_horizons/assets/css/chatbot.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -804,6 +805,31 @@
             </div>
          </section>
          <!-- contact area end -->
+          <!-- chatbot area start -->
+           <!-- Floating Chatbot Icon -->
+    <div class="chat-icon" id="chat-icon" onclick="toggleChatWindow()">
+      💬
+  </div>
+
+  <!-- Chatbot Window -->
+  <div class="chat-container" id="chat-container">
+      <div class="chat-box" id="chat-box">
+          <div class="bot-message">
+              <p>Hello! How can I assist you with your donation today?</p>
+          </div>
+          <div class="recommended-questions">
+              <button onclick="askQuestion('How can I donate?')">How can I donate?</button>
+              <button onclick="askQuestion('What causes can I donate to?')">What causes can I donate to?</button>
+              <button onclick="askQuestion('Is my donation secure?')">Is my donation secure?</button>
+              <button onclick="askQuestion('Can I track my donation?')">Can I track my donation?</button>
+          </div>
+      </div>
+      <input type="text" id="user-input" placeholder="Ask me anything..." onkeydown="if(event.key === 'Enter'){sendMessage()}">
+      <button onclick="sendMessage()">Send</button>
+      <button class="close-btn" onclick="closeChatWindow()">X</button>
+  </div>
+
+  <script src="./assets/js/chatbot.js"></script>
 
       </main>
 

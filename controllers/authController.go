@@ -48,10 +48,9 @@ func GoogleCallback(c *gin.Context) {
 	json.Unmarshal(data, &userInfo)
 
 	user := models.User{
-		GoogleID:   userInfo["id"].(string),
-		Email:      userInfo["email"].(string),
-		Name:       userInfo["name"].(string),
-		ProfilePic: userInfo["picture"].(string),
+		GoogleID: userInfo["id"].(string),
+		Email:    userInfo["email"].(string),
+		Name:     userInfo["name"].(string),
 	}
 
 	database.DB.Create(&user)

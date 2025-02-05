@@ -8,17 +8,17 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Create Food Demand (Deduct from Inventory)
-func CreateFoodDemand(c *gin.Context) {
-	var demand models.FoodDemand
+// Create Clothing Demand (Deduct from Inventory)
+func CreateClothingDemand(c *gin.Context) {
+	var demand models.ClothingDemand
 	if err := c.ShouldBindJSON(&demand); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input"})
 		return
 	}
 
-	// Check if the requested item exists in inventory
-	var inventory models.FoodInventory
-	result := database.DB.Where("item_name = ?", demand.ItemName).First(&inventory)
+	// Check if the requested clothing exists in inventory
+	var inventory models.ClothingInventory
+	result := database.DB.Where("clothing_type = ? AND size = ?", demand.ClothingType, demand.Size).First(&inventory)
 
 	if result.RowsAffected == 0 || inventory.Stock < demand.Quantity {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Not enough stock available"})
@@ -31,5 +31,5 @@ func CreateFoodDemand(c *gin.Context) {
 
 	// Save the demand request
 	database.DB.Create(&demand)
-	c.JSON(http.StatusOK, gin.H{"message": "Food demand created and inventory updated", "data": demand})
+	c.JSON(http.StatusOK, gin.H{"message": "Clothing demand created and inventory updated", "data": demand})
 }

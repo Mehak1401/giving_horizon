@@ -8,7 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Create Clothing Demand (Deduct from Inventory)
 func CreateClothingDemand(c *gin.Context) {
 	var demand models.ClothingDemand
 	if err := c.ShouldBindJSON(&demand); err != nil {
@@ -16,7 +15,6 @@ func CreateClothingDemand(c *gin.Context) {
 		return
 	}
 
-	// Check if the requested clothing exists in inventory
 	var inventory models.ClothingInventory
 	result := database.DB.Where("clothing_type = ? AND size = ?", demand.ClothingType, demand.Size).First(&inventory)
 
@@ -25,11 +23,9 @@ func CreateClothingDemand(c *gin.Context) {
 		return
 	}
 
-	// Deduct stock
 	inventory.Stock -= demand.Quantity
 	database.DB.Save(&inventory)
 
-	// Save the demand request
 	database.DB.Create(&demand)
 	c.JSON(http.StatusOK, gin.H{"message": "Clothing demand created and inventory updated", "data": demand})
 }

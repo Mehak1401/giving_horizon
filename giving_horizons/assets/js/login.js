@@ -7,7 +7,7 @@ function signIn(){
 
     let params = {
         "client_id":"2311434277-hc6ahu3uq9fa759bfok00qp6ct3qhjsi.apps.googleusercontent.com",
-        "redirect_uri":"https://giving-horizon-ibup.vercel.app/my-profile.html",
+        "redirect_uri":"https://giving-horizon.vercel.app/my-profile.html",
         "response_type":"token",
         "scope":"https://www.googleapis.com/auth/userinfo.profile",
         "include_granted_scopes":'true',

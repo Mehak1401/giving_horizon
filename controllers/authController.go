@@ -24,7 +24,7 @@ var googleOauthConfig = &oauth2.Config{
 
 func GoogleLogin(c *gin.Context) {
 	url := googleOauthConfig.AuthCodeURL("state-token", oauth2.AccessTypeOffline)
-	c.JSON(http.StatusOK, gin.H{"url": url})
+	c.Redirect(http.StatusFound, url)
 }
 
 func GoogleCallback(c *gin.Context) {
@@ -48,10 +48,9 @@ func GoogleCallback(c *gin.Context) {
 	json.Unmarshal(data, &userInfo)
 
 	user := models.User{
-		GoogleID:   userInfo["id"].(string),
-		Email:      userInfo["email"].(string),
-		Name:       userInfo["name"].(string),
-		ProfilePic: userInfo["picture"].(string),
+		GoogleID: userInfo["id"].(string),
+		Email:    userInfo["email"].(string),
+		Name:     userInfo["name"].(string),
 	}
 
 	database.DB.Create(&user)

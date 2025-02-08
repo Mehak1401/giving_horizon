@@ -4,8 +4,7 @@ import "gorm.io/gorm"
 
 type User struct {
 	gorm.Model
-	GoogleID  string `json:"google_id"`
-	Email     string `json:"email" gorm:"unique"`
-	Name      string `json:"name"`
-	ProfilePic string `json:"profile_pic"`
+	GoogleID string `json:"google_id"`
+	Email    string `json:"email" gorm:"unique"`
+	Name     string `json:"name"`
 }
